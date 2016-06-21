@@ -5,7 +5,7 @@ function Stream({ tracks = [] }) {
     <div>
       {
         tracks.map((track) => {
-          return <div className="track">{track.title}</div>;
+          return <div className="track" key={key}>{track.title}</div>;
         })
       }
     </div>
