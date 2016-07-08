@@ -7,6 +7,7 @@ function Stream({ tracks = [], onAuth }) {
         <button onClick={onAuth} type="button">Login</button>
       </div>
       <br />
+      <div>
       {
         tracks.map((track, key) => {
           return <div className="track" key={key}>{track.title}</div>;
