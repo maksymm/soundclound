@@ -1,7 +1,7 @@
 import React from 'react';
 import { bindActionCreator } from 'redux';
 import { connect } from 'react-redux';
-iimport * as actions from '../../actions';
+import * as actions from '../../actions';
 import Stream from './presenter';
 
 function mapStateToProps(state) {
