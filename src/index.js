@@ -12,7 +12,6 @@ import Stream from './components/Stream';
 
 
 const store = configureStore();
-store.dispatch(actions.setTracks(tracks));
 
 const history = syncHistoryWithStore(browserHistory, store)
 
