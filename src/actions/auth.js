@@ -29,6 +29,7 @@ function fetchStream(me, session) {
     fetch(`//api.soundcloud.com/me/activities?limit=20&offset=0&oauth_token=${session.oauth_token}`)
       .then((response) => response.json())
       .then((data) => {
+        console.log("data is: ", data);
         dispatch(setTracks(data.collection));
       });
   };
