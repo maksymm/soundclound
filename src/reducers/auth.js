@@ -2,7 +2,7 @@ import * as actionTypes from '../constants/actionTypes';
 
 const initialState = {};
 
-export default fuction(state = initialState, action) {
+export default function(state = initialState, action) {
   switch (action.type) {
     case actionTypes.ME_SET:
       return setMe(state, action);
@@ -10,7 +10,7 @@ export default fuction(state = initialState, action) {
   return state;
 }
 
-funciton setMe(state, action) {
+function setMe(state, action) {
   const { user } = action;
   return { ...state, user };
 }
