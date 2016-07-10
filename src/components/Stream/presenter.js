@@ -13,8 +13,11 @@ function Stream({ user, tracks = [], onAuth }) {
       <br />
       <div>
       {
-        tracks.map((track, key) => {
-          return <div className="track" key={key}>{track.origin.title}</div>;
+        tracks.filter( (track) => track && track.origin )
+        .map((track, key) => {
+          console.log("track.origin.title is: ", track.origin.title);
+          console.log("key is key", key);
+            return <div className="track" key={key}>{track.origin.title}</div>;
         })
       }
     </div>
