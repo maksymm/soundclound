@@ -3,5 +3,6 @@ import { setTracks } from './track';
 
 export {
   auth,
-  setTracks
+  setTracks,
+  playTrack
 };
