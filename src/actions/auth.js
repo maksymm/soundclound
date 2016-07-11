@@ -31,7 +31,7 @@ function fetchStream(me, session) {
       .then((data) => {
         console.log("data is: ", data);
         console.log("data.collection is: ", data.collection);
-        data.collection = data.collection.filter( (item) => { item && item.origin });
+        data.collection = data.collection.filter( (item) => item && item.origin );
         dispatch(setTracks(data.collection));
       });
   };
