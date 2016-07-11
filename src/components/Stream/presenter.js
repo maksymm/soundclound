@@ -1,8 +1,8 @@
 import React from 'react';
 
 //tracks.filter( (track) => track && track.origin )
-
-function Stream({ user, tracks = [], onAuth }) {
+//return <div className="track" key={key}>{track.origin.title}</div>;
+function Stream({ user, tracks = [], onAuth, onPlay }) {
   return (
     <div>
       <div>
@@ -17,8 +17,12 @@ function Stream({ user, tracks = [], onAuth }) {
       {
         tracks.map((track, key) => {
           console.log("track.origin.title is: ", track.origin.title);
-          console.log("key is key", key);
-            return <div className="track" key={key}>{track.origin.title}</div>;
+          return (
+            <div className="track" key={key}>
+              {track.origin.title}
+              <button type="button" onClick={() => onPlay(track)}>Play</button>
+            </div>
+          );
         })
       }
     </div>
