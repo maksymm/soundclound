@@ -1,8 +1,9 @@
 import React from 'react';
+import { CLIENT_ID } from '../../constants/auth';
 
 //tracks.filter( (track) => track && track.origin )
 //return <div className="track" key={key}>{track.origin.title}</div>;
-function Stream({ user, tracks = [], onAuth, onPlay }) {
+function Stream({ user, tracks = [], activeTrack, onAuth, onPlay }) {
   return (
     <div>
       <div>
@@ -26,6 +27,11 @@ function Stream({ user, tracks = [], onAuth, onPlay }) {
         })
       }
     </div>
+    {
+      activeTrack ?
+        <audio id="audio" ref="audio" src={`${activeTrack.origin.stream_url}?client_id=${CLIENT_ID}`}></audio> :
+        null
+    }
   </div>
   );
 }
