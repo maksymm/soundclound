@@ -1,9 +1,28 @@
-import React from 'react';
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import { CLIENT_ID } from '../../constants/auth';
 
 //tracks.filter( (track) => track && track.origin )
 //return <div className="track" key={key}>{track.origin.title}</div>;
-function Stream({ user, tracks = [], activeTrack, onAuth, onPlay }) {
+class Stream extends Component {
+  componentDidUpdate() {
+    const audioElement = ReactDOM.findDOMNode(this.refs.audio);
+
+    if (!audioElement) { return; }
+
+    const { activeTrack } = this.props;
+
+    if (activeTrack) {
+      audioElement.play();
+    } else {
+      audioElement.pause();
+    }
+  }
+
+  render() {
+    const { user, tracks = [], activeTrack, onAuth, onPlay } = this.props;
+
+//function Stream({ user, tracks = [], activeTrack, onAuth, onPlay }) {
   return (
     <div>
       <div>
@@ -35,5 +54,5 @@ function Stream({ user, tracks = [], activeTrack, onAuth, onPlay }) {
   </div>
   );
 }
-
+}
 export default Stream;

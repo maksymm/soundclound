@@ -20,7 +20,7 @@ function setTracks(state, action) {
   return { ...state, tracks };
 }
 
-function setPlay(set, action) {
+function setPlay(state, action) {
   const { track } = action;
   return { ...state, activeTrack: track };
 }
