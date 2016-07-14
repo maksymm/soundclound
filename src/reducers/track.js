@@ -11,6 +11,8 @@ export default function(state = initialState, action) {
       return setTracks(state, action);
     case actionTypes.TRACK_PLAY:
       return setPlay(state, action);
+    case actionTypes.TRACK_STOP:
+      return setStop(state, action);
     }
     return state;
 }
@@ -23,4 +25,9 @@ function setTracks(state, action) {
 function setPlay(state, action) {
   const { track } = action;
   return { ...state, activeTrack: track };
+}
+
+function setStop(state, action) {
+  const { track } = action;
+  return { ...state, activeTrack: null };
 }
