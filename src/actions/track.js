@@ -13,3 +13,10 @@ export function playTrack(track) {
     track
   };
 }
+
+export function stopTrack(track) {
+  return {
+    type: actionTypes.TRACK_STOP,
+    track
+  };
+}
