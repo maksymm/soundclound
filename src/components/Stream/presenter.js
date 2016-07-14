@@ -6,12 +6,12 @@ import { CLIENT_ID } from '../../constants/auth';
 //return <div className="track" key={key}>{track.origin.title}</div>;
 class Stream extends Component {
   componentDidUpdate() {
-    const audioElement = ReactDOM.findDOMNode(this.refs.audio);
+    const audioElement = this.refs.audio;
 
     if (!audioElement) { return; }
-
+    console.log("audioElement: ", audioElement);
     const { activeTrack } = this.props;
-
+    console.log("activeTrack: ", activeTrack);
     if (activeTrack) {
       audioElement.play();
     } else {
@@ -20,7 +20,7 @@ class Stream extends Component {
   }
 
   render() {
-    const { user, tracks = [], activeTrack, onAuth, onPlay } = this.props;
+    const { user, tracks = [], activeTrack, onAuth, onPlay, onPause } = this.props;
 
 //function Stream({ user, tracks = [], activeTrack, onAuth, onPlay }) {
   return (
@@ -41,6 +41,7 @@ class Stream extends Component {
             <div className="track" key={key}>
               {track.origin.title}
               <button type="button" onClick={() => onPlay(track)}>Play</button>
+              <button type="button" onClick={() => onPause(track)}>Pause</button>
             </div>
           );
         })
